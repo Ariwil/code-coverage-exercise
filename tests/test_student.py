@@ -40,5 +40,20 @@ def test_get_student_with_more_classes():
         "sophomore",
         ["mathematics", "foundations of computing"]
     )
+    result = get_student_with_more_classes(charles, ada)
+    assert result == ada
 
-    # TODO: write assertions
+def test_get_student_with_more_classes_reverse_students():
+    charles = Student("Charles Babbage", "senior", ["mechanical engineering"])
+    ada = Student(
+        "Ada Lovelace",
+        "sophomore",
+        ["mathematics", "foundations of computing"]
+    )
+    result = get_student_with_more_classes(ada, charles)
+    assert result == ada
+
+def test_get_student_with_empty_classes_list():
+    charles = Student("Charles Babbage", "senior")
+
+    assert len(charles.courses) == 0
